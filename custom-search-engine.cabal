@@ -1,0 +1,48 @@
+cabal-version:      2.4
+name:               custom-search-engine
+version:            0.1.0.0
+synopsis:
+
+-- A longer description of the package.
+-- description:
+homepage:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+license:            NONE
+author:             romes
+maintainer:         rodrigo.m.mesquita@gmail.com
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files: CHANGELOG.md
+
+library
+    exposed-modules:  CustomSearchEngine
+
+    -- Modules included in this library but not exported.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    base >=4 && < 5,
+                      text, mtl,
+                      scalpel,
+                      cob,
+                      http-client
+                
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite custom-search-engine-test
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          MyLibTest.hs
+    build-depends:    base
+
+executable main
+    default-language: Haskell2010
+    main-is:          Main.hs
+    build-depends:    base, custom-search-engine, cob
